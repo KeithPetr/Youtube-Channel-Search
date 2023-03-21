@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    max-width: 1200px;
+    min-width: 320px;
+}
+
+/* --------------- Title --------------------------------- */
+
+.title-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.title {
+    color:#5FA8D3;
+}
+
+.channel {
+    color: #1B4965;
+}
+
+.title-arrow {
+    margin-right: .5em;
+    width: 30px
+}
+
+/* ------------------------ Search Options --------------------- */
+
+.search-options {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    row-gap: .5em;
+    margin: 0 auto;
+}
+
+.channel-menu {
+   padding: .9em;
+   border: 3px solid #1B4965;
+   font-size: 1.1rem;
+}
+
+.search-input {
+    padding: .9em;
+    border: 3px solid #1B4965;
+    font-size: 1.1rem
+}
+
+.search-btn {
+  padding: 1em;
+  font-size: 1.1rem;
+  background-color: #5FA8D3;
+  border: 3px solid #1B4965;
+}
+
+.search-btn:hover {
+    cursor: pointer;
+}
+
+/* --------------------- Results Display -------------------- */
+
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.video {
+    width: 90%;
+    margin: 2em 1em 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.image {
+    width: 100%;
+}
+
+.image:hover {
+    border: 2px solid gold;
+}
+
+.video p {
+    margin: .5em 0;
+}
+
+.video .title {
+    color: #000000;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.video .channel {
+    color: #000000;
+}
+
+.date {
+    color: purple;
+    font-weight: 700;
+}
+
+.description {
+    color: #ffffff;
+    padding: .25em;
+    background-color: rgba(11, 11, 11, 0.5);
+    border-radius: 5px;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px #000000;
+    overflow: hidden;
+}
+
+
+
+/* ------------------ Media Queries ------------------------- */
+
+@media (min-width: 700px) {
+    .search-options {
+        flex-direction: row;
+        column-gap: 1em;
+        width: 90%;
+    }
+
+    .title-section {
+        font-size: 1.2rem;
+    }
+
+    .channel-menu {
+        width: 30%;
+        font-size: 1.4rem;
+    }
+
+    .search-input {
+        width: 60%;
+        font-size: 1.4rem;
+    }
+
+    .search-btn {
+        width: 10%;
+        font-size: 1.4rem;
+    }
+}

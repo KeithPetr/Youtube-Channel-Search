@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b6dc2920d5.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Youtube Search Channel</title>
+  </head>
+  <body>
+    <div class="title-section">
+      <img
+        class="title-arrow"
+        src="images/play-icon.png"
+        alt="play button icon"
+      />
+      <h1 class="title"><span class="channel">Channel</span> Search</h1>
+    </div>
+    <div class="search-options" id="search-options">
+      <select class="channel-menu" id="channel-menu">
+        <option value="UCNW7HDseZb6N3nKUEP6uLag">Scrimba</option>
+        <option value="UCP032AGFh2KzzIUGylB9BjA">Bill Simmons</option>
+        <option value="UCGiRSHBdWuCgjgmPPz_13xw">Leon Noel</option>
+        <option value="UCJZv4d5rbIKd4QHMPkcABCw">Kevin Powell</option>
+        <option value="UC8butISFwT-Wl7EV0hUK0BQ">freeCodeCamp.org</option>
+      </select>
+      <input type="text" id="search-input" class="search-input" placeholder="Search" />
+      <button type="button" class="search-btn" id="search-btn">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <section class="search-results" id="search-results">
+        
+    </section>
+  </body>
+  <script src="index.js" type="module"></script>
+</html>
