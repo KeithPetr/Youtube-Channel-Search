@@ -8,6 +8,7 @@ const searchResults = get("search-results");
 
 let dataArray = [];
 
+// ----------------- Functions -------------------------------
 function search() {
   const input = searchInput.value.trim();
   if (input) {
@@ -67,6 +68,7 @@ function renderResults(dataArray) {
   searchResults.innerHTML = html;
 }
 
+// ---------------------- Event Listeners ---------------------
 searchBtn.addEventListener("click", search);
 searchInput.addEventListener("keydown", (e) => {
     if (e.target === searchInput && e.keyCode === 13) {
