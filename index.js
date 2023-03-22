@@ -36,6 +36,7 @@ async function callApi(input) {
     dataArray = data.items.map((item) => ({ ...item.id, ...item.snippet }));
     console.log(dataArray);
     if (dataArray.length) {
+      errorMessageEl.classList.add("hidden");
       renderResults(dataArray);
     } else {
       throw Error("Search terms produced no results");
