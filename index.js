@@ -20,28 +20,29 @@ function search() {
   }
 }
 
-function callApi(input) {
+async function callApi(input) {
   let dataArray = [];
-  fetch(
-    `${endpoint}?key=${apiKey}&channelId=${searchOptions.value}
-    &q=${input}&part=snippet&type=video&maxResults=15`
-  )
-    .then((res) => {
-        if(!res.ok) {
-            throw Error("Something went wrong")
-        }
-        return res.json()
-    })
-    .then((data) => {
-      dataArray = data.items.map((item) => ({ ...item.id, ...item.snippet }));
-      console.log(dataArray);
-      if (dataArray.length) {
-        renderResults(dataArray);
-      } else {
-        throw Error("Search terms produced no results")
-      }
-    })
-    .catch((error) => (get("search-results").innerHTML = error));
+  try {
+    const res = await fetch(
+      `${endpoint}?key=${apiKey}&channelId=${searchOptions.value}&q=${input}&part=snippet&type=video&maxResults=15`
+    );
+    if (!res.ok) {
+      throw Error("Something went wrong");
+    }
+  
+    const data = await res.json();
+  
+    dataArray = data.items.map((item) => ({ ...item.id, ...item.snippet }));
+    console.log(dataArray);
+    if (dataArray.length) {
+      renderResults(dataArray);
+    } else {
+      throw Error("Search terms produced no results");
+    }
+
+  }catch(error) {
+    get('search-results').innerHTML = error
+  }
 }
 
 function renderResults(dataArray) {
@@ -69,7 +70,7 @@ function renderResults(dataArray) {
 // ---------------------- Event Listeners ---------------------
 searchBtn.addEventListener("click", search);
 searchInput.addEventListener("keydown", (e) => {
-    if (e.target === searchInput && e.keyCode === 13) {
-        search();
-    }
+  if (e.target === searchInput && e.keyCode === 13) {
+    search();
+  }
 });
