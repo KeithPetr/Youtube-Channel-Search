@@ -5,6 +5,7 @@ const searchOptions = get("channel-menu");
 const searchInput = get("search-input");
 const searchBtn = get("search-btn");
 const searchResults = get("search-results");
+const errorMessageEl = get("error-message");
 
 // ----------------- Functions -------------------------------
 function search() {
@@ -29,9 +30,9 @@ async function callApi(input) {
     if (!res.ok) {
       throw Error("Something went wrong");
     }
-  
+
     const data = await res.json();
-  
+
     dataArray = data.items.map((item) => ({ ...item.id, ...item.snippet }));
     console.log(dataArray);
     if (dataArray.length) {
@@ -39,9 +40,10 @@ async function callApi(input) {
     } else {
       throw Error("Search terms produced no results");
     }
-
-  }catch(error) {
-    get('search-results').innerHTML = error
+  } catch (error) {
+    get("error-message").innerHTML = error;
+    errorMessageEl.classList.remove("hidden");
+    searchResults.innerHTML = "";
   }
 }
 

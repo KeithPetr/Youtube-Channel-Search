@@ -126,7 +126,16 @@ a:hover {
     overflow: hidden;
 }
 
+/* ------------------ Error Message ------------------------- */
 
+.error-message {
+    text-align: center;
+    margin-top: 2em;
+ }
+ 
+ .hidden {
+     display: none;
+ }
 
 /* ------------------ Media Queries ------------------------- */
 
