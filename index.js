@@ -6,8 +6,6 @@ const searchInput = get("search-input");
 const searchBtn = get("search-btn");
 const searchResults = get("search-results");
 
-let dataArray = [];
-
 // ----------------- Functions -------------------------------
 function search() {
   const input = searchInput.value.trim();
@@ -23,7 +21,7 @@ function search() {
 }
 
 function callApi(input) {
-  dataArray = [];
+  let dataArray = [];
   fetch(
     `${endpoint}?key=${apiKey}&channelId=${searchOptions.value}
     &q=${input}&part=snippet&type=video&maxResults=15`
@@ -35,7 +33,7 @@ function callApi(input) {
         return res.json()
     })
     .then((data) => {
-      data.items.map((item) => dataArray.push({ ...item.id, ...item.snippet }));
+      dataArray = data.items.map((item) => ({ ...item.id, ...item.snippet }));
       console.log(dataArray);
       if (dataArray.length) {
         renderResults(dataArray);
